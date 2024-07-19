@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Account Creation</title>
+</head>
+<body>
+    <form action="/create-account" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <label for="accountType">Account Type:</label>
+        <select id="accountType" name="account_type">
+            <option value="personal">Personal</option>
+            <option value="business">Business</option>
+        </select>
+        
+        <input type="Submit"Submit>
+    </form>
+</body>
+</html>
