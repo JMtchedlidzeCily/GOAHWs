@@ -51,7 +51,7 @@ while i < len(lst):
     i += 1
 
 # 11.
-for i in [1, 2, 3]:
+for _ in [1, 2, 3]:
     print("hi")
 
 # 12.
@@ -167,7 +167,7 @@ while i < len(s):
     i += 1
 
 # 33.
-for i in ["x", "y"] :
+for i in ["x", "y"]:
     print(i)
 
 # 34.
@@ -200,16 +200,16 @@ while i < len(lst):
     i += 1
 
 # 39.
-d = {"a": 1, "b": 2}
-for k in d:
-    print(k, d[k])
+for key in {"a": 1, "b": 2}:
+    print(key, {"a": 1, "b": 2}[key])
 
 # 40.
 d = {"a": 1, "b": 2}
-keys = list(d.keys())
+keys = list(d)  # Manually create a list of keys
 i = 0
 while i < len(keys):
-    print(keys[i], d[keys[i]])
+    key = keys[i]
+    print(key, d[key])
     i += 1
 
 # 41.
