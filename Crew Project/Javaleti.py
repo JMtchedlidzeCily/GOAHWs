@@ -1,7 +1,7 @@
 from random import *
 from time import *
 Main_room = 0
-balance = 0
+balance = int(input("input a starter balance:$"))
 Quit = False
 headbackstr = "0"
 def headback():
@@ -18,9 +18,10 @@ def headback():
         headbackstr = input("Please enter a valid option.")
 while Quit == False:
     while Main_room == 0:
-        Main_room = int(input("You are in the lobby of the Javaleti Casino! What would you like to do? 1.Head Over to the Baccarat room | 2.Head Over to the Craps room | 3.Head over to the slot machine room. | 4. Spin the wheel of fortune | 5.Check your balance | 6.Exit the casino:"))
+        Main_room = int(input("You are in the lobby of the Javaleti Casino! What would you like to do? 1.Head Over to the Baccarat room | 2.Head Over to the Craps room | 3.Head over to the slot machine room. | 4.Check your balance | 5.Exit the casino:"))
     if Main_room == 1:
                 Baccarat_bet = int(input("Make a Bet: $"))
+                balance -= Baccarat_bet
                 Baccarat_choice = str(input("Choose a hand: Banker or Player? (in lowercase)"))
                 sleep(1.2)
                 player = randint(1,9)
@@ -50,6 +51,7 @@ while Quit == False:
             Craps_points = 0
             Craps_opp_points = 0
             Craps_bet = int(input("Make a Bet: $"))
+            balance -= Craps_bet
             Craps_choice1 = int(input("Guess what the outcome of the first dice roll will be (1 to 6):"))
             Craps_choice2 = int(input("Guess what the outcome of the second dice roll will be (1 to 6):"))
             print("Rolling the first dice...")
@@ -90,7 +92,7 @@ while Quit == False:
             if Craps_points > Craps_opp_points:
                  print("CONGRATS! YOU WIN! YOU WIN 1.7X YOUR BET!")
                  balance += Craps_bet * 1.7
-            elif Craps_points > Craps_opp_points:
+            elif Craps_points < Craps_opp_points:
                  print("YOU LOST! YOU LOST ALL OF YOUR BET MONEY. BETTER LUCK NEXT TIME!")
             else:
                  print("DRAW! YOU BOTH LOST YOUR BET MONEY")
@@ -98,17 +100,75 @@ while Quit == False:
             headback()
     
     elif Main_room == 3:
-        print("3")
+        Slotmachine_bet = input("Make a Bet!")
+        balance -= Slotmachine_bet
+        Slotmachine_rolling1 = randint(1,7)
+        Slotmachine_rolling2 = randint(1,7)
+        Slotmachine_rolling3 = randint(1,7)
+        print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⣀⣤⣴⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣿⡇⠀⠀⣤⣄⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⠀⠛⠛⠀⠀")
+        print(f"⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿{Slotmachine_rolling1}⡇⢸⣿⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⠀⣷⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⣾⡇⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣿⡇⠀⣿⡿⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠙⠃⠀⠀")
+        print("⠀⠀⠀⠀⢀⣴⣿⠟⠛⠛⢻⡿⠛⠛⠛⢻⣿⣿⡟⠋⠉⠉⠛⢿⣦⡀⠀⠀")
+        print("⠀⠀⠀⢰⣿⣿⣥⣤⣤⣤⣾⣧⣤⣤⣤⣿⣿⣿⣷⣦⣤⣤⣶⣿⣿⣿⡆⠀")
+        print("⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀")
+        print("⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀")
+        print("⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀")
+        sleep(1)
+        print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⣀⣤⣴⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣿⡇⠀⠀⣤⣄⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⠀⠛⠛⠀⠀")
+        print(f"⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿{Slotmachine_rolling1}⡇⢸{Slotmachine_rolling2}⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⠀⣷⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⣾⡇⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣿⡇⠀⣿⡿⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠙⠃⠀⠀")
+        print("⠀⠀⠀⠀⢀⣴⣿⠟⠛⠛⢻⡿⠛⠛⠛⢻⣿⣿⡟⠋⠉⠉⠛⢿⣦⡀⠀⠀")
+        print("⠀⠀⠀⢰⣿⣿⣥⣤⣤⣤⣾⣧⣤⣤⣤⣿⣿⣿⣷⣦⣤⣤⣶⣿⣿⣿⡆⠀")
+        print("⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀")
+        print("⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀")
+        print("⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀")
+        sleep(2)
+        print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⣀⣤⣴⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⣿⡇⠀⠀⣤⣄⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⠀⠛⠛⠀⠀")
+        print(f"⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿{Slotmachine_rolling1}⡇⢸{Slotmachine_rolling2}⣿⡇⢸⣿{Slotmachine_rolling3}⡇⠀⣿⡇⠀⠀⣷⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⣿⣿⡇⢸⣿⣿⡇⢸⣿⣿⡇⠀⣿⡇⠀⣾⡇⠀⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⢸⣿⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣿⡇⠀⣿⡿⠀⠀")
+        print("⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠙⠃⠀⠀")
+        print("⠀⠀⠀⠀⢀⣴⣿⠟⠛⠛⢻⡿⠛⠛⠛⢻⣿⣿⡟⠋⠉⠉⠛⢿⣦⡀⠀⠀")
+        print("⠀⠀⠀⢰⣿⣿⣥⣤⣤⣤⣾⣧⣤⣤⣤⣿⣿⣿⣷⣦⣤⣤⣶⣿⣿⣿⡆⠀")
+        print("⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀")
+        print("⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀")
+        print("⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀")
+        sleep(2)
+        if Slotmachine_rolling2 == Slotmachine_rolling1 == Slotmachine_rolling3:
+             print(f"YOU WON!!!!! YOU MULTIPLIED YOUR MONEY BY {Slotmachine_rolling1}")
+             balance = Slotmachine_bet * Slotmachine_rolling1
+        elif Slotmachine_rolling2 == Slotmachine_rolling1 == Slotmachine_rolling3 == 1:
+             print("You rolled three 1's you keep your money.")
+        else:
+             print("YOU LOSE! YOU LOST YOUR BET MONEY!")
+        headback()
     elif Main_room == 4:
-        print("4")
-    elif Main_room == 5:
         if balance < 0:
             print(f"${balance}, you are in debt of the casino.")
             Main_room = 0
         else:
             print(f"${balance}")
             Main_room = 0
-    elif Main_room == 6:
+    elif Main_room == 5:
         Quit = True
     else:
         print("Enter a valid option.")
