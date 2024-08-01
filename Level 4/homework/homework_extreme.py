@@ -1,5 +1,5 @@
 from turtle import *
-speed (0)
+speed (3)
 width (5)
 color ("green")
 penup()
