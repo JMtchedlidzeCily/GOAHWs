@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(240, 240, 240);
+    color: rgb(33, 37, 41);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    color: rgb(0, 123, 255);
+    font-weight: bold;
+}
+
+h2 {
+    color: rgb(40, 167, 69);
+    font-weight: bold;
+}
+
+p {
+}
+
+footer {
+    background-color: rgb(52, 58, 64);
+    color: rgb(255, 255, 255);
+}
